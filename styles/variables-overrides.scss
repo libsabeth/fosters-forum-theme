@@ -1,0 +1,406 @@
+/*-----------------------------------------------------------------------------
+# [ Discourse admin overrides ]
+-----------------------------------------------------------------------------*/
+.boxed.white {
+    border: 2px solid gray;
+    padding: 20px;
+}
+
+.d-header {
+    display:none;
+}
+
+/*-----------------------------------------------------------------------------
+# [ Foster custom variables ]
+-----------------------------------------------------------------------------*/
+
+// Font Stack
+// --------------------------------------------------
+$font-body:                   'Lato', Helvetica, Arial, sans-serif;
+$font-headings:               'Oswald', Arial Narrow, Arial, sans-serif;
+
+
+// Variables
+// --------------------------------------------------
+
+// Colors
+
+$nav-gray:                    #343a40 !default;
+
+$gray-base:                   #000 !default;
+$gray-darker:                 lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:                   #3f3f3f !default;   // #Same as nav-inverse
+$gray:                        #777 !default; // #555
+$gray-light:                  #b2b2b2 !default;   // #999
+$gray-lighter:                lighten($gray-base, 93.5%) !default; // #eee
+
+$brand-default:               #978E83 !default;
+$brand-primary:               #6abfe8 !default;
+
+$brand-secondary:             #dbc9b6 !default;
+
+$brand-compli-green:          #cfdc50 !default;
+$brand-compli-green-dark:     #8F997B !default;
+$brand-compli-green-light:   #E8EDD5 !default;
+
+$brand-primary-dark:          #397b9b !default;
+$brand-primary-light:         #96cfe5 !default;
+$brand-primary-lighter:       #d3e9ef !default;
+
+
+$brand-success:               #99cc67 !default;
+// lighter, transparent
+$brand-success-light:         rgba(153, 204, 103, .3) !default;
+$brand-info:                  #6f85aa !default;
+$brand-warning:               #fee467 !default;
+// lighter, transparent
+$brand-warning-light:         rgba(254, 228, 103, .4) !default;
+$brand-danger:                #ee6264 !default;
+// lighter, transparent
+$brand-danger-light:          rgba(238, 98, 100, .3) !default;
+$brand-light:                 #dddddd !default;
+$brand-dark:                  #4e597c !default;
+$brand-stats:                 goldenrod !default;
+
+$text-primary:              $brand-primary !default;
+$text-primary-dark:         $brand-primary-dark !default;
+$text-primary-light:        $brand-primary-light !default;
+$text-primary-lighter:      $brand-primary-lighter !default;
+// End variables
+
+/*--------------------- [ Text ] ----------------------*/
+.text-primary {
+  // font-weight: 800;
+  color: $text-primary !important;
+}
+/*-----------------------------------------------------------------------------
+# [ Global - manually taken 6-20]
+-----------------------------------------------------------------------------*/
+* {-webkit-text-size-adjust: none;}
+html, body, .container-fluid {
+  height: 100%;
+}
+body {
+  background-color: #f4f4f4;
+  font-family: $font-body;
+  font-weight: 500;
+  position: relative;
+  min-height: 100%;
+  // overflow-x: hidden;
+  // letter-spacing: .1em;
+  // background-color: #eee;
+  color: #1b1b1b;
+  line-height: 1.5;
+}
+body #ember478 {
+  background-color: #eee;
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  //color: #333;
+  font-family: $font-headings;
+  font-weight: 700 !important;
+  line-height: 1.2;
+}
+h1, h2, h3, h4, h5, h6,
+.btn,
+.wordtrack-title {
+  font-family: $font-headings;
+  font-weight: 700;
+}
+p{
+  line-height: 1.5;
+  // font-size: .5rem;
+}
+
+/*-----------------------------------------------------------------------------
+# [ Navbar ]
+-----------------------------------------------------------------------------*/
+
+/*------------- [ Replacing BS framework ] -------------*/
+.container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
+    margin-top: 80px;
+}
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+.bg-dark {
+    background-color: #343a40 !important;
+}
+.navbar-brand {
+    display: inline-block;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+/*------------- [ Foster custom ] -------------*/
+nav {
+  text-transform: uppercase;
+  font-weight: 800 !important;
+  font-family: $font-headings;
+}
+
+
+.navbar {
+  // margin-bottom: 30px;
+  border-top: 1px solid lighten($nav-gray, 10%)
+}
+a.navbar-brand img {
+  max-width: 180px;
+  border: none;
+}
+a.navbar-brand span {
+  display: none;
+}
+// .primary-nav .nav-items ul li {
+//   float: right;
+//   right: 0;
+//   position: relative;
+// }
+// .primary-nav .nav-items ul li a {
+//   border: none;
+//   color: $brand-primary !important;
+// }
+// .primary-nav .nav-items ul li a:hover {
+//   border-bottom: 1px dotted $brand-primary;
+// }
+
+/* Small Devices, Tablets */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+  .navbar-collapse {
+    border-top: 1px solid #666;
+    padding-top: 10px;
+    margin-top: 20px;
+  }
+  .nav-item a {
+    border-bottom: 1px dotted #444;
+    padding: 0.9rem 1rem;
+  }
+  .nav-item a:hover {
+    background-color: $brand-primary-dark;
+    color: white !important;
+  }
+}
+.primary-nav .bg-dark {
+  background: $gray-dark !important;
+}
+.navbar-dark .navbar-nav .nav-link{
+  color: $brand-primary;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: $brand-light;
+  cursor: pointer;
+}
+.navbar-dark .navbar-nav .separater-right {
+  border-right: 1px dotted #999;
+  padding-right: 20px;
+}
+.dropdown-inline .dropdown-item {
+  text-transform: none;
+  color: #333;
+  font-size: .9rem;
+
+}
+@media (max-width: 768px) {
+  .navbar-dark .navbar-nav .separater-right {
+    border-right: 0;
+    padding-right: 0;
+  }
+  .navbar-nav .btn-group {
+    width: 100%;
+  }
+}
+.navbar-dark .navbar-nav .admin-items a {
+  color: #999;
+  font-weight: 500;
+}
+.navbar-dark .btn-secondary {
+  background-color: #494d5a !important;
+  border: none;
+  margin-left: 20px!important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  //font-weight: 100;
+  color: white !important;
+}
+@media (max-width: 768px) {
+  .navbar-dark .btn-secondary {
+    background-color: transparent !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+.navbar-dark .btn-secondary span {
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.navbar-dark .btn-secondary:hover {
+  background-color: white !important;
+  color: $text-primary !important;
+}
+.navbar-dark .dropdown-item {
+  // text-align: right !important;
+  font-weight: 100 !important;
+  font-size: 14px;
+  z-index: 800000;
+  padding-left: 5px;
+}
+.navbar-dark .dropdown-item .fa {
+  width: 20px;
+  overflow: hidden;
+  color: lighten($gray-base, 65%);
+  margin-right: 8px;
+  text-align: right;
+}
+.navbar-dark .dropdown-item:active {
+  background-color: $gray-lighter;
+  color: black;
+}
+.navbar-dark .dropdown-item.active {
+  background-color: $brand-compli-green;
+}
+.navbar-dark .dropdown-menu {
+  z-index: 1040;
+}
+@media (max-width: 768px) {
+  .navbar-dark .dropdown-menu {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar-dark .btn-group .btn strong {
+    display: none;
+  }
+}
+/*-----------------------------------------------------------------------------
+# [ After nav  ]
+-----------------------------------------------------------------------------*/
+#sticky-blue {
+  height: 6px;
+  background-color: $brand-primary-light;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+/*-----------------------------------------------------------------------------
+# [ Category boxes - added by Afton 6-15-20 ]
+-----------------------------------------------------------------------------*/
+.category-box {
+    background-color:white;
+}
+
+.category-boxes .category-box {
+    background-color:white;
+    border-left-width: 0;
+    border-top-width: 6px;
+}
+
+.category-heading{
+    display:none;
+}
+
+.category-boxes .subcategories {
+    display: none;
+}
+
+
+
+/*-----------------------------------------------------------------------------
+# [ Footer -- taken manually 6-20 ]
+-----------------------------------------------------------------------------*/
+
+#footer .container {
+    height: 100% !important;
+}
+
+footer {
+  padding-bottom: 20px;
+  padding-top: 30px;
+  background-color: $nav-gray;
+  //background-color: darken($brand-dark, 25%);
+  // border: 1px solid darken($text-dark, 25%);
+  // margin-top: 130px;
+  font-size: 80%;
+  z-index: 10;
+  display: block;
+  position: relative;
+}
+footer * {
+  color: $brand-primary-lighter;
+}
+footer .col {
+  text-align: left;
+  font-weight: 500;
+}
+footer .col:last-child {
+  text-align: right;
+
+}
+footer .col h4 {
+  font-size: 16px;
+  color: $brand-primary-lighter;
+}
+footer .col h6 {
+  // text-transform: none;
+  //font-weight: 100;
+  font-size: .8rem;
+  margin-top: 20px;
+}
+footer h6 a {
+  text-transform: none;
+  border-bottom: 1px dotted darken($brand-primary-light, 25%);
+  font-family: $font-body;
+  margin-bottom: 20px;
+  display: inline;
+}
+/* Small Devices, Tablets */
+@media (max-width: 768px) {
+  footer, footer .container-fluid {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 0;
+    // background-color: $nav-gray;
+    // //background-color: darken($brand-dark, 25%);
+    // // border: 1px solid darken($text-dark, 25%);
+    // // margin-top: 130px;
+    // font-size: 80%;
+  }
+  footer .col-11 {
+    right: 0;
+    margin-right: 0;
+    position: relative;
+  }
+}
+.copyright {
+  margin-top: 30px;
+  padding-top: 40px;
+  padding-bottom: 100px;
+  border-top: 1px dotted #666;
+}
+.copyright img {
+  max-width: 100px;
+}
+.right-align {
+  text-align: right;
+  // color: #999;
+}
